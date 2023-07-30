@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Item Selection using AJAX</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Item Selection using AJAX</h1>
+
+    <label for="itemSelect">Select an Item:</label>
+    <select id="itemSelect">
+        <option value="">Select an item</option>
+        <option value="1">Item 1</option>
+        <option value="2">Item 2</option>
+        <option value="3">Item 3</option>
+    </select>
+
+    <div id="itemDetails"></div>
+
+    <script>
+        $(document).ready(function () {
+            $("#itemSelect").change(function () {
+                var selectedItemId = $(this).val();
+                if (selectedItemId === "") {
+                    $("#itemDetails").html("");
+                } else {
+                    $.ajax({
+                        url: "get_items.php",
+                        type: "POST",
+                        data: { item_id: selectedItemId },
+                        success: function (response) {
+                            $("#itemDetails").html(response);
+                        },
+                        error: function (xhr, status, error) {
+                            console.log("Error:", status, error);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
