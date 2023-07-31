@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        /* Some basic styling for the components */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #accordion {
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        #tooltipBtn {
+            margin-top: 20px;
+        }
+
+        .ui-datepicker {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>jQuery UI Examples</h1>
+
+    <!-- Menu -->
+    <ul id="menu" style="display: flex;
+    justify-content: space-around;
+    ">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    <br>
+    <!-- Dialog -->
+    <button id="openDialogBtn">Open Dialog</button>
+    <div id="dialog" title="Dialog Title">
+        This is a dialog content.
+    </div>
+
+    <!-- Accordion -->
+    <div id="accordion">
+        <h3>What does PHP stand for?</h3>
+        <div>
+            <p>PHP stands for "Hypertext Preprocessor."</p>
+        </div>
+        <h3>What is the file extension used for PHP files?</h3>
+        <div>
+            <p>PHP files have a ".php" file extension.</p>
+        </div>
+        <h3>How do you output text in PHP?</h3>
+        <div>
+            <p>You can use the echo or print statement to output text in PHP.</p>
+        </div>
+    </div>
+
+    <!-- Tooltip -->
+    <button id="tooltipBtn">Hover Me</button>
+
+    <!-- Datepicker -->
+    <label for="datepicker">Select Date:</label>
+    <input type="text" id="datepicker" readonly>
+
+    <!-- Show, Hide, and Toggle Paragraph -->
+    <br>
+    <br>
+    <br>
+    <button id="toggleParagraphBtn">Toggle Paragraph</button>
+    <p class="paragraph" style="display: none;">This is a paragraph with the class "paragraph."</p>
+
+    <script>
+        $(document).ready(function () {
+            // Menu
+            $("#menu").menu();
+
+            // Dialog
+            $("#dialog").dialog({
+                autoOpen: false,
+                modal: true,
+                buttons: {
+                    Ok: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+            $("#openDialogBtn").click(function () {
+                $("#dialog").dialog("open");
+            });
+
+            // Accordion
+            $("#accordion").accordion();
+
+            // Tooltip
+            $("#tooltipBtn").tooltip();
+
+            // Datepicker
+            $("#datepicker").datepicker({
+                dateFormat: "dd-mm-yy"
+            });
+
+            // Show, Hide, and Toggle Paragraph
+            $("#toggleParagraphBtn").click(function () {
+                $(".paragraph").toggle();
+            });
+        });
+    </script>
+</body>
+
+</html>
