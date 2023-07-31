@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ajax Live Database Search</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Ajax Live Database Search</h1>
+    <input type="text" id="searchInput" placeholder="Search for a student...">
+    <div id="searchResult"></div>
+
+    <script>
+        $(document).ready(function () {
+            $("#searchInput").keyup(function () {
+                var searchQuery = $(this).val().trim();
+
+                if (searchQuery !== '') {
+                    $.ajax({
+                        url: "search_students.php",
+                        method: "POST",
+                        data: { search_query: searchQuery },
+                        success: function (response) {
+                            $("#searchResult").html(response);
+                        },
+                        error: function (xhr, status, error) {
+                            console.log("Error:", status, error);
+                        }
+                    });
+                } else {
+                    $("#searchResult").html("");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
