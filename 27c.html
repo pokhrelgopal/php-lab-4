@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Handling with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <button id="clickBtn">Click Me</button>
+    <button id="hoverBtn">Hover Me</button>
+    <input type="text" id="keyupInput">
+    <button id="focusBtn">Focus Input</button>
+    <select id="changeSelect">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    </select>
+
+    <p id="output"></p>
+
+    <script>
+        $(document).ready(function () {
+            // Click Event
+            $('#clickBtn').click(function () {
+                $('#output').text('Button clicked!');
+            });
+
+            // Hover Event
+            $('#hoverBtn').hover(function () {
+                $('#output').text('Button hovered!');
+            }, function () {
+                $('#output').text('');
+            });
+
+            // Keyup Event
+            $('#keyupInput').keyup(function () {
+                var text = $(this).val();
+                $('#output').text('You typed: ' + text);
+            });
+
+            // Focus Event
+            $('#focusBtn').click(function () {
+                $('#keyupInput').focus();
+            });
+
+            // Change Event
+            $('#changeSelect').change(function () {
+                var selectedValue = $(this).val();
+                $('#output').text('Selected option: ' + selectedValue);
+            });
+        });
+    </script>
+</body>
+
+</html>

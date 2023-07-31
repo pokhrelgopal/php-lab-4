@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Signup Form Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <form id="signupForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <span id="usernameError" style="color: red;"></span>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" style="color: red;"></span>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span id="passwordError" style="color: red;"></span>
+        <br>
+        <input type="submit" value="Sign Up">
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            $('#signupForm').submit(function (event) {
+                event.preventDefault();
+
+                $('#usernameError').text('');
+                $('#emailError').text('');
+                $('#passwordError').text('');
+
+                var username = $('#username').val();
+                var email = $('#email').val();
+                var password = $('#password').val();
+
+                if (username.length < 3) {
+                    $('#usernameError').text('Username must be at least 3 characters long.');
+                    return;
+                }
+
+                if (!isValidEmail(email)) {
+                    $('#emailError').text('Please enter a valid email address.');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    $('#passwordError').text('Password must be at least 6 characters long.');
+                    return;
+                }
+
+            });
+
+            function isValidEmail(email) {
+                var emailPattern = /^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
+                return emailPattern.test(email);
+            }
+        });
+    </script>
+</body>
+
+</html>

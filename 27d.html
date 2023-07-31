@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <button id="addBtn">Add New Paragraph</button>
+
+    <p>This paragraph can be removed.</p>
+
+    <p id="modifyParagraph">This content will be modified.</p>
+    <button id="modifyBtn">Modify Content</button>
+
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+    <button id="appendBtn">Append New Item</button>
+
+    <img id="image" src="image.jpg" alt="Original Image">
+    <button id="changeAttrBtn">Change Image Alt Text</button>
+
+    <script>
+        $('#addBtn').click(function () {
+            $('<p>New Paragraph Added!</p>').appendTo('body');
+        });
+
+        $('p:eq(1)').remove();
+
+        $('#modifyBtn').click(function () {
+            $('#modifyParagraph').text('Content Modified!');
+        });
+
+        $('#appendBtn').click(function () {
+            $('<li>New Item</li>').appendTo('#list');
+        });
+
+        $('#changeAttrBtn').click(function () {
+            $('#image').attr('alt', 'Modified Image');
+        });
+    </script>
+</body>
+
+</html>

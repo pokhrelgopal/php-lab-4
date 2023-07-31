@@ -17,12 +17,10 @@ class Square extends Shape {
     }
 }
 
-// Create objects of the classes
 $shape = new Shape();
 $circle = new Circle();
 $square = new Square();
 
-// Call the draw() method for each object
-$shape->draw();   // Output: Drawing a shape.
-$circle->draw();  // Output: Drawing a circle.
-$square->draw();  // Output: Drawing a square.
+$shape->draw(); 
+$circle->draw();
+$square->draw();

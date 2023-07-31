@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery Selectors</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <p>This is a paragraph.</p>
+    <p class="highlight">This is another paragraph with a class "highlight".</p>
+    <p id="special">This is a paragraph with an id "special".</p>
+    <div class="container">
+        <p>Inside the container div.</p>
+    </div>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li class="highlight">Item 3 with class "highlight"</li>
+    </ul>
+
+    <script>
+        $('p').css('color', 'red');
+        $('.highlight').css('background-color', 'yellow');
+        $('#special').css('border', '1px solid black');
+        $('ul li').css('font-weight', 'bold');
+        $('li:contains("Item 2")').css('color', 'blue');
+    </script>
+</body>
+
+</html>

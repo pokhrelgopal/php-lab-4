@@ -1,11 +1,9 @@
 <?php
-// Define the interface
 interface Animal
 {
     public function makeSound();
 }
 
-// Implement the interface in classes
 class Dog implements Animal
 {
     public function makeSound()
@@ -22,10 +20,8 @@ class Cat implements Animal
     }
 }
 
-// Create objects of the classes
 $dog = new Dog();
 $cat = new Cat();
 
-// Call the method defined in the interface for each object
-$dog->makeSound(); // Output: Dog barks: Woof woof!
-$cat->makeSound(); // Output: Cat meows: Meow meow!
+$dog->makeSound();
+$cat->makeSound();

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hide, Unhide, and Toggle Image with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Hide, Unhide, and Toggle Image</h1>
+
+    <img id="image" src="https://via.placeholder.com/300" alt="Placeholder Image">
+
+    <button id="hideBtn">Hide Image</button>
+    <button id="unhideBtn">Unhide Image</button>
+    <button id="toggleBtn">Toggle Image</button>
+
+    <script>
+        $('#hideBtn').click(function () {
+            $('#image').hide();
+        });
+
+        $('#unhideBtn').click(function () {
+            $('#image').show();
+        });
+
+        $('#toggleBtn').click(function () {
+            $('#image').toggle();
+        });
+    </script>
+</body>
+
+</html>

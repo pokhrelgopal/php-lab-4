@@ -1,5 +1,4 @@
 <?php
-// Define the interfaces
 interface Shape
 {
     public function draw();
@@ -10,7 +9,6 @@ interface Color
     public function getColor();
 }
 
-// Implement the interfaces in a class
 class Circle implements Shape, Color
 {
     public function draw()
@@ -24,7 +22,6 @@ class Circle implements Shape, Color
     }
 }
 
-// Create an object of the class and call the methods from both interfaces
 $circle = new Circle();
-$circle->draw();   // Output: Drawing a circle.
-$circle->getColor();  // Output: Circle color: Red.
+$circle->draw();
+$circle->getColor();

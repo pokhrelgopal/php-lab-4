@@ -9,21 +9,17 @@ class Person {
         $this->address = $address;
         $this->occupation = $occupation;
     }
-
     public function displayDetails() {
         echo "Name: " . $this->name . "<br>";
         echo "Address: " . $this->address . "<br>";
         echo "Occupation: " . $this->occupation . "<br>";
     }
-
     public function updateName($newName) {
         $this->name = $newName;
     }
-
     public function updateAddress($newAddress) {
         $this->address = $newAddress;
     }
-
     public function updateOccupation($newOccupation) {
         $this->occupation = $newOccupation;
     }
@@ -51,4 +47,3 @@ $person1->displayDetails();
 
 echo "Person 2 updated details:<br>";
 $person2->displayDetails();
-?>
